@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B98CEC4F-A0E2-4EA0-B81F-D10CAF3B8B05}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CppWinRTModule</RootNamespace>
+    <ProjectName>CppWinRTModule</ProjectName>
+    <TargetName>CppWinRTModule</TargetName>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <SubSystem>Console</SubSystem>
+
+    <!-- sets a bunch of Windows Universal properties -->
+    <OpenConsoleUniversalApp>true</OpenConsoleUniversalApp>
+
+    <!-- Module builder: generate per-namespace .ixx files -->
+    <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <CppWinRTGenerateWindowsMetadata>false</CppWinRTGenerateWindowsMetadata>
+
+    <!-- Build STL modules so generated code can do `import std;` -->
+    <BuildStlModules>true</BuildStlModules>
+
+    <!-- No namespace filter — include everything for now. -->
+  </PropertyGroup>
+  <PropertyGroup Label="NuGet Dependencies">
+    <TerminalCppWinrt>true</TerminalCppWinrt>
+  </PropertyGroup>
+  <Import Project="..\..\..\common.openconsole.props" Condition="'$(OpenConsoleDir)'==''" />
+  <Import Project="$(OpenConsoleDir)src\common.nugetversions.props" />
+  <Import Project="$(OpenConsoleDir)src\cppwinrt.build.pre.props" />
+
+  <!-- Override PCH: module builder cannot use precompiled headers. -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+    </ClCompile>
+  </ItemDefinitionGroup>
+
+  <!-- No source files needed — the NuGet targets add .ixx files automatically
+       via CppWinRTAddModuleInterfaces when CppWinRTBuildModule=true. -->
+
+  <!-- Add MUX/WinUI and WebView2 WinMDs to the platform projection inputs
+       so their namespaces are included in the module. -->
+  <Target Name="CppWinRTAddMuxToModule"
+          BeforeTargets="GetCppWinRTPlatformWinMDInputs"
+          DependsOnTargets="ResolveAssemblyReferences">
+    <ItemGroup>
+      <CppWinRTPlatformWinMDReferences Include="$(OpenConsoleDir)packages\Microsoft.UI.Xaml.2.8.4\lib\uap10.0\Microsoft.UI.Xaml.winmd">
+        <WinMDPath>$(OpenConsoleDir)packages\Microsoft.UI.Xaml.2.8.4\lib\uap10.0\Microsoft.UI.Xaml.winmd</WinMDPath>
+      </CppWinRTPlatformWinMDReferences>
+      <CppWinRTPlatformWinMDReferences Include="$(OpenConsoleDir)packages\Microsoft.Web.WebView2.1.0.1661.34\lib\Microsoft.Web.WebView2.Core.winmd">
+        <WinMDPath>$(OpenConsoleDir)packages\Microsoft.Web.WebView2.1.0.1661.34\lib\Microsoft.Web.WebView2.Core.winmd</WinMDPath>
+      </CppWinRTPlatformWinMDReferences>
+    </ItemGroup>
+  </Target>
+
+  <Import Project="$(OpenConsoleDir)src\cppwinrt.build.post.props" />
+  <Import Project="$(OpenConsoleDir)src\common.nugetversions.targets" />
+</Project>

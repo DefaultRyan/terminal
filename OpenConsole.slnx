@@ -716,6 +716,14 @@
     </Project>
   </Folder>
   <Folder Name="/Terminal/Utils/">
+    <Project Path="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" Id="b98cec4f-a0e2-4ea0-b81f-d10caf3b8b05">
+      <Build Solution="*|Any CPU" Project="false" />
+      <Build Solution="AuditMode|ARM64" Project="false" />
+      <Build Solution="AuditMode|x86" Project="false" />
+      <Build Solution="Fuzzing|ARM64" Project="false" />
+      <Build Solution="Fuzzing|x64" Project="false" />
+      <Build Solution="Fuzzing|x86" Project="false" />
+    </Project>
     <Project Path="src/cascadia/ElevateShim/elevate-shim.vcxproj" Id="416fd703-baa7-4f6e-9361-64f550ec8fca">
       <Platform Solution="*|Any CPU" Project="Win32" />
       <Build Solution="*|Any CPU" Project="false" />
