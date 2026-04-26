@@ -2,6 +2,17 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+
+#define WINRT_IMPORT_MODULE
+
+import winrt.Windows.Foundation;
+import winrt.Windows.Foundation.Collections;
+
+#include <wil_cppwinrt_module.h>
+#include <til_winrt_module.h>
+#include <cppwinrt_utils_module.h>
+#include <LibraryResources.h>
+
 #include "ConptyConnection.h"
 
 #include <conpty-static.h>
@@ -228,9 +239,9 @@ namespace winrt::Microsoft::Terminal::TerminalConnection::implementation
         if (environmentOverrides)
         {
             Windows::Foundation::Collections::ValueSet env{};
-            for (const auto& [k, v] : environmentOverrides)
+            for (const auto& kv : environmentOverrides)
             {
-                env.Insert(k, Windows::Foundation::PropertyValue::CreateString(v));
+                env.Insert(kv.Key(), Windows::Foundation::PropertyValue::CreateString(kv.Value()));
             }
             vs.Insert(L"environment", env);
         }

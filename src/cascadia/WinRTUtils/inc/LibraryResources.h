@@ -27,6 +27,7 @@ Check out the comment in LibraryResources.cpp to learn more.
 */
 
 // Don't let non-debug and debug builds live together.
+#pragma warning(suppress : 4384) // C++20 modules: import in TU triggers false "not at global scope" warning
 #pragma detect_mismatch("winrt_utils_debug", "1")
 
 #pragma section(".util$res$m", read)
@@ -52,6 +53,7 @@ namespace Microsoft::Console::Utils
 
 #else // _DEBUG
 
+#pragma warning(suppress : 4384) // C++20 modules: import in TU triggers false "not at global scope" warning
 #pragma detect_mismatch("winrt_utils_debug", "0")
 
 #define USES_RESOURCE(x) (x)

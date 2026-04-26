@@ -3,6 +3,23 @@
 
 #include "pch.h"
 
+#define WINRT_IMPORT_MODULE
+
+import winrt.Windows.Foundation;
+import winrt.Windows.Foundation.Collections;
+import winrt.Windows.Security.Credentials;
+import winrt.Windows.Data.Json;
+import winrt.Windows.Web.Http;
+import winrt.Windows.Web.Http.Filters;
+import winrt.Windows.Web.Http.Headers;
+import winrt.Windows.System.UserProfile;
+import winrt.Windows.Storage;
+
+#include <wil_cppwinrt_module.h>
+#include <til_winrt_module.h>
+#include <cppwinrt_utils_module.h>
+#include <LibraryResources.h>
+
 #include "AzureConnection.h"
 #include "AzureClientID.h"
 #include <sstream>
@@ -11,10 +28,7 @@
 
 #include "AzureConnection.g.cpp"
 
-#include "winrt/Windows.System.UserProfile.h"
 #include "../../types/inc/Utils.hpp"
-
-#include "winrt/Windows.Web.Http.Filters.h"
 
 using namespace ::Microsoft::Console;
 using namespace ::Microsoft::Terminal::Azure;
@@ -312,7 +326,10 @@ namespace winrt::Microsoft::Terminal::TerminalConnection::implementation
     // - a tuple containing the ID and display name of the tenant.
     static Tenant _crackTenant(const WDJ::IJsonValue& value)
     {
-        auto jsonTenant{ value.GetObjectW() };
+        #pragma push_macro("GetObject")
+        #undef GetObject
+        auto jsonTenant{ value.GetObject() };
+        #pragma pop_macro("GetObject")
 
         Tenant tenant{};
         if (jsonTenant.HasKey(L"tenantID"))

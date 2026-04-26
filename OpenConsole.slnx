@@ -506,6 +506,7 @@
       <Build Solution="Fuzzing|x86" Project="false" />
     </Project>
     <Project Path="src/cascadia/TerminalConnection/TerminalConnection.vcxproj" Id="ca5cad1a-c46d-4588-b1c0-40f31ae9100b">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <BuildDependency Project="src/host/proxy/Host.Proxy.vcxproj" />
       <BuildType Solution="AuditMode|Any CPU" Project="Debug" />
       <BuildType Solution="AuditMode|ARM64" Project="Release" />

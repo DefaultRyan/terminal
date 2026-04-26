@@ -19,14 +19,6 @@
 
 // Must be included before any WinRT headers.
 #include <Unknwn.h>
-#include <winrt/Windows.Foundation.h>
-#include <wil/cppwinrt.h>
-
-#include "winrt/Windows.Security.Credentials.h"
-#include "winrt/Windows.Foundation.Collections.h"
-#include "winrt/Windows.Web.Http.h"
-#include "winrt/Windows.Web.Http.Headers.h"
-#include "winrt/Windows.Data.Json.h"
 #include <Windows.h>
 
 #include <winhttp.h>
@@ -37,8 +29,3 @@ TRACELOGGING_DECLARE_PROVIDER(g_hTerminalConnectionProvider);
 #include <telemetry/ProjectTelemetry.h>
 
 #include "til.h"
-#include <til/winrt.h>
-
-#include <cppwinrt_utils.h>
-
-#include <LibraryResources.h>
