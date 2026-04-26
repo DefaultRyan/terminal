@@ -745,6 +745,7 @@
       <Build Solution="Release|Any CPU" Project="false" />
     </Project>
     <Project Path="src/cascadia/WinRTUtils/WinRTUtils.vcxproj" Id="ca5cad1a-039a-4929-ba2a-8beb2e4106fe">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <BuildType Solution="AuditMode|Any CPU" Project="Release" />
       <BuildType Solution="AuditMode|ARM64" Project="Release" />
       <BuildType Solution="AuditMode|x86" Project="Release" />

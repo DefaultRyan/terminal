@@ -3,6 +3,12 @@
 
 #include "pch.h"
 
+import winrt.Windows.Foundation;
+import winrt.Windows.Foundation.Collections;
+import winrt.Windows.ApplicationModel.Resources.Core;
+
+#include <wil_cppwinrt_module.h>
+
 #include "ScopedResourceLoader.h"
 
 using namespace ::winrt::Windows::ApplicationModel::Resources::Core;

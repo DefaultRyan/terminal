@@ -4,6 +4,15 @@
 #pragma once
 
 #include "pch.h"
+
+import winrt.Windows.Foundation;
+import winrt.Windows.Foundation.Collections;
+import winrt.Windows.System;
+import winrt.Windows.UI.Xaml;
+
+#include <wil_cppwinrt_module.h>
+#include <cppwinrt_utils_module.h>
+
 #include "Utils.h"
 
 // Function Description:
