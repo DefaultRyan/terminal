@@ -769,6 +769,7 @@
   </Folder>
   <Folder Name="/Terminal/Window/">
     <Project Path="src/cascadia/ShellExtension/WindowsTerminalShellExt.vcxproj" Id="f2ed628a-db22-446f-a081-4cc845b51a2b">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <BuildType Solution="AuditMode|*" Project="Release" />
       <Platform Solution="*|Any CPU" Project="Win32" />
       <Build Solution="*|Any CPU" Project="false" />

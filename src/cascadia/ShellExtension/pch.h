@@ -21,8 +21,6 @@
 #undef GetCurrentTime
 #endif
 
-#include <winrt/base.h>
-
 #include <Unknwn.h>
 #include <ShObjIdl.h>
 #include <Shlwapi.h>

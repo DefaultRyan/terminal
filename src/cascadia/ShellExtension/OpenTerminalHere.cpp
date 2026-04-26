@@ -2,11 +2,16 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+
+import winrt.Windows.Foundation;
+import winrt.Windows.ApplicationModel.Resources.Core;
+
+#include <wil_cppwinrt_module.h>
+
 #include "OpenTerminalHere.h"
 #include "../WinRTUtils/inc/WtExeUtils.h"
 #include "../WinRTUtils/inc/LibraryResources.h"
 
-#include <winrt/Windows.ApplicationModel.Resources.Core.h>
 #include <ShlObj.h>
 
 static constexpr std::wstring_view VerbName{ L"WindowsTerminalOpenHere" };

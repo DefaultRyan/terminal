@@ -2,6 +2,12 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+
+import winrt.Windows.Foundation;
+import winrt.Windows.ApplicationModel.Resources.Core;
+
+#include <wil_cppwinrt_module.h>
+
 #include "OpenTerminalHere.h"
 
 #include "../WinRTUtils/inc/LibraryResources.h"
