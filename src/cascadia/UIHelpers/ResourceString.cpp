@@ -1,4 +1,18 @@
 #include "pch.h"
+
+#define WINRT_IMPORT_MODULE
+
+import winrt.Windows.Foundation;
+import winrt.Windows.UI.Xaml;
+import winrt.Windows.UI.Xaml.Markup;
+import winrt.Windows.ApplicationModel.Resources.Core;
+import winrt.Windows.ApplicationModel.Resources;
+
+#include <wil_cppwinrt_module.h>
+#include <til_winrt_module.h>
+#include <cppwinrt_utils_module.h>
+#include <LibraryResources.h>
+
 #include "ResourceString.h"
 #include "ResourceString.g.cpp"
 

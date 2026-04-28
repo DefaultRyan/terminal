@@ -571,6 +571,7 @@
   </Folder>
   <Folder Name="/Terminal/Settings/">
     <Project Path="src/cascadia/TerminalSettingsAppAdapterLib/TerminalSettingsAppAdapterLib.vcxproj" Id="3c46e2b0-ae6c-4132-9122-6772fb411959">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalControl/dll/TerminalControl.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalCore/lib/TerminalCore-lib.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalSettingsModel/dll/Microsoft.Terminal.Settings.Model.vcxproj" />
@@ -733,6 +734,7 @@
       <Build Solution="Fuzzing|x86" Project="false" />
     </Project>
     <Project Path="src/cascadia/UIHelpers/UIHelpers.vcxproj" Id="6515f03f-e56d-4db4-b23d-ac4fb80db36f">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <Build Solution="*|Any CPU" Project="false" />
       <Build Solution="AuditMode|ARM64" Project="false" />
       <Build Solution="AuditMode|x86" Project="false" />

@@ -2,6 +2,22 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+
+#define WINRT_IMPORT_MODULE
+
+import winrt.Windows.Foundation;
+import winrt.Windows.ApplicationModel.Resources.Core;
+import winrt.Windows.System;
+import winrt.Windows.UI.Xaml;
+import winrt.Windows.UI.Xaml.Controls;
+import winrt.Windows.UI.Xaml.Input;
+import winrt.Microsoft.UI.Xaml.Controls;
+
+#include <wil_cppwinrt_module.h>
+#include <til_winrt_module.h>
+#include <cppwinrt_utils_module.h>
+#include <LibraryResources.h>
+
 #include "TextMenuFlyout.h"
 
 #include "TextMenuFlyout.g.cpp"

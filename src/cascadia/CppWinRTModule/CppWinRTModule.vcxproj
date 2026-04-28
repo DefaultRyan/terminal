@@ -19,7 +19,7 @@
     <!-- Build STL modules so generated code can do `import std;` -->
     <BuildStlModules>true</BuildStlModules>
 
-    <!-- No namespace filter — include everything for now. -->
+    <!-- No namespace filter on the module builder — include all platform namespaces. -->
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>
@@ -40,20 +40,11 @@
   <!-- No source files needed — the NuGet targets add .ixx files automatically
        via CppWinRTAddModuleInterfaces when CppWinRTBuildModule=true. -->
 
-  <!-- Add MUX/WinUI and WebView2 WinMDs to the platform projection inputs
-       so their namespaces are included in the module. -->
-  <Target Name="CppWinRTAddMuxToModule"
-          BeforeTargets="GetCppWinRTPlatformWinMDInputs"
-          DependsOnTargets="ResolveAssemblyReferences">
-    <ItemGroup>
-      <CppWinRTPlatformWinMDReferences Include="$(OpenConsoleDir)packages\Microsoft.UI.Xaml.2.8.4\lib\uap10.0\Microsoft.UI.Xaml.winmd">
-        <WinMDPath>$(OpenConsoleDir)packages\Microsoft.UI.Xaml.2.8.4\lib\uap10.0\Microsoft.UI.Xaml.winmd</WinMDPath>
-      </CppWinRTPlatformWinMDReferences>
-      <CppWinRTPlatformWinMDReferences Include="$(OpenConsoleDir)packages\Microsoft.Web.WebView2.1.0.1661.34\lib\Microsoft.Web.WebView2.Core.winmd">
-        <WinMDPath>$(OpenConsoleDir)packages\Microsoft.Web.WebView2.1.0.1661.34\lib\Microsoft.Web.WebView2.Core.winmd</WinMDPath>
-      </CppWinRTPlatformWinMDReferences>
-    </ItemGroup>
-  </Target>
+  <!-- NOTE: MUX/WinUI and WebView2 WinMDs are NOT added here because this
+       version of cppwinrt does not support sharing reference module IFCs
+       across projects. Each consumer project builds its own reference
+       modules from these WinMDs locally. Only platform (SDK) modules are
+       shared from this builder project. -->
 
   <Import Project="$(OpenConsoleDir)src\cppwinrt.build.post.props" />
   <Import Project="$(OpenConsoleDir)src\common.nugetversions.targets" />

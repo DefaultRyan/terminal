@@ -1,4 +1,19 @@
 #include "pch.h"
+
+#define WINRT_IMPORT_MODULE
+
+import winrt.Windows.Foundation;
+import winrt.Windows.Foundation.Collections;
+import winrt.Windows.UI.Xaml;
+import winrt.Windows.UI.Xaml.Media.Imaging;
+import winrt.Windows.Graphics.Imaging;
+import winrt.Microsoft.UI.Xaml.Controls;
+
+#include <wil_cppwinrt_module.h>
+#include <til_winrt_module.h>
+#include <cppwinrt_utils_module.h>
+#include <LibraryResources.h>
+
 #include "IconPathConverter.h"
 #include "IconPathConverter.g.cpp"
 

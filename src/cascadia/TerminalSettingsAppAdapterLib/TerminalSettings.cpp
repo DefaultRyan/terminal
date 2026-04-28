@@ -2,8 +2,24 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+
+#define WINRT_IMPORT_MODULE
+
+import winrt.Windows.Foundation;
+import winrt.Windows.Foundation.Collections;
+import winrt.Windows.UI.Xaml;
+import winrt.Windows.UI.ViewManagement;
+
+#include <wil_cppwinrt_module.h>
+#include <til_winrt_module.h>
+#include <cppwinrt_utils_module.h>
+#include <LibraryResources.h>
+
+#include <winrt/Microsoft.Terminal.Settings.Model.h>
+#include <winrt/Microsoft.Terminal.Core.h>
+#include <winrt/Microsoft.Terminal.Control.h>
+
 #include "TerminalSettings.h"
-#include "winrt/Windows.UI.ViewManagement.h"
 #include "../../types/inc/colorTable.hpp"
 
 using namespace winrt::Microsoft::Terminal::Control;
