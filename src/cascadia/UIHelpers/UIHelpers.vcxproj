@@ -50,9 +50,6 @@
       <DependentUpon>TextMenuFlyout.idl</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-    <ClCompile Include="$(OpenConsoleDir)src\cascadia\inc\winrt_module_hooks.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="Converters.idl" />

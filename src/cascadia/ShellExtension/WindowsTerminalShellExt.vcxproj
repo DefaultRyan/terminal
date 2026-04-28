@@ -33,9 +33,6 @@
     </ClCompile>
     <ClCompile Include="OpenTerminalHere.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="$(OpenConsoleDir)src\cascadia\inc\winrt_module_hooks.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ProjectName).def" />
