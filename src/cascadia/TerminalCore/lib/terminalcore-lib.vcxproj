@@ -10,6 +10,7 @@
 
     <!-- sets a bunch of Windows Universal properties -->
     <OpenConsoleUniversalApp>true</OpenConsoleUniversalApp>
+    <CppWinRTBuildModule>true</CppWinRTBuildModule>
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet Dependencies">
@@ -25,6 +26,9 @@
 
   <!-- ============================ References ============================  -->
   <ItemGroup>
+    <ProjectReference Include="$(OpenConsoleDir)src\cascadia\CppWinRTModule\CppWinRTModule.vcxproj">
+      <CppWinRTConsumeModule>true</CppWinRTConsumeModule>
+    </ProjectReference>
     <ProjectReference Include="$(OpenConsoleDir)src\types\lib\types.vcxproj">
       <Project>{18D09A24-8240-42D6-8CB6-236EEE820263}</Project>
     </ProjectReference>

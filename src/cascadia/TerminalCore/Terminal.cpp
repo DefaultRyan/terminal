@@ -2,6 +2,15 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+
+#define WINRT_IMPORT_MODULE
+
+import winrt.Windows.Foundation;
+import winrt.Microsoft.Terminal.Core;
+
+#include <wil_cppwinrt_module.h>
+#include <til_winrt_module.h>
+
 #include "Terminal.hpp"
 #include "../../terminal/adapter/adaptDispatch.hpp"
 #include "../../terminal/parser/OutputStateMachineEngine.hpp"
@@ -13,7 +22,6 @@
 
 #include <til/hash.h>
 #include <til/regex.h>
-#include <winrt/Microsoft.Terminal.Core.h>
 
 using namespace winrt::Microsoft::Terminal::Core;
 using namespace Microsoft::Terminal::Core;

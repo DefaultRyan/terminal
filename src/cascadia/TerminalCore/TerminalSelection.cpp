@@ -2,6 +2,15 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+
+#define WINRT_IMPORT_MODULE
+
+import winrt.Windows.Foundation;
+import winrt.Microsoft.Terminal.Core;
+
+#include <wil_cppwinrt_module.h>
+#include <til_winrt_module.h>
+
 #include "Terminal.hpp"
 #include "unicode.hpp"
 
