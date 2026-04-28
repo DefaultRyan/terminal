@@ -16,7 +16,10 @@
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
     <CppWinRTGenerateWindowsMetadata>false</CppWinRTGenerateWindowsMetadata>
 
-    <!-- Build STL modules so generated code can do `import std;` -->
+    <!-- Required: generated .ixx files do `import std;` which needs the STL module.
+         Note: this leaks std.ixx.ifc to consumers via AdditionalBMIDirectories.
+         Consumer projects with CppWinRTBuildModule=true must also set
+         BuildStlModules=true to avoid import-then-include STL conflicts. -->
     <BuildStlModules>true</BuildStlModules>
 
     <!-- No namespace filter on the module builder — include all platform namespaces. -->
@@ -34,17 +37,25 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
+      <!-- Enable classic COM IUnknown support in the module so consumers
+           that implement COM interfaces (e.g. XAML types) work correctly. -->
+      <PreprocessorDefinitions>WINRT_ENABLE_LEGACY_COM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
+
+  <!-- Workaround: BuildStlModules=true doesn't create the STL IFC output
+       directory, causing std.ixx compilation to fail on clean builds. -->
+  <Target Name="EnsureStlModuleOutputDir" BeforeTargets="ClCompile;FixupCLCompileOptions;ComputeCLOutputs">
+    <MakeDir Directories="$(IntDir)microsoft\STL\" />
+  </Target>
 
   <!-- No source files needed — the NuGet targets add .ixx files automatically
        via CppWinRTAddModuleInterfaces when CppWinRTBuildModule=true. -->
 
-  <!-- NOTE: MUX/WinUI and WebView2 WinMDs are NOT added here because this
-       version of cppwinrt does not support sharing reference module IFCs
-       across projects. Each consumer project builds its own reference
-       modules from these WinMDs locally. Only platform (SDK) modules are
-       shared from this builder project. -->
+  <!-- NOTE: MUX/WinUI and WebView2 WinMDs are NOT included here.
+       Sharing reference projection modules needs more polish in the cppwinrt
+       module filter. Each consumer project builds its own local reference
+       modules for these WinMDs. -->
 
   <Import Project="$(OpenConsoleDir)src\cppwinrt.build.post.props" />
   <Import Project="$(OpenConsoleDir)src\common.nugetversions.targets" />

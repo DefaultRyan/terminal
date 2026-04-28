@@ -23,25 +23,5 @@
 #undef GetCurrentTime
 #endif
 
-#include <wil/cppwinrt.h>
-
-#include <winrt/Windows.Foundation.Collections.h>
-
-#include <winrt/Windows.UI.Text.h>
-#include <winrt/Windows.UI.Xaml.Controls.h>
-#include <winrt/Windows.UI.Xaml.Media.Imaging.h>
-#include <winrt/Windows.UI.Xaml.Documents.h>
-#include <winrt/Windows.UI.Xaml.Input.h>
-
-#include <winrt/Microsoft.UI.Xaml.Controls.h>
-#include <winrt/Microsoft.UI.Xaml.XamlTypeInfo.h>
-
-#include <winrt/Microsoft.Terminal.UI.h>
-
 // Manually include til after we include Windows.Foundation to give it winrt superpowers
 #include "til.h"
-
-#include <cppwinrt_utils.h>
-#include <wil/cppwinrt_helpers.h> // must go after the CoreDispatcher type is defined
-
-#include <LibraryResources.h>

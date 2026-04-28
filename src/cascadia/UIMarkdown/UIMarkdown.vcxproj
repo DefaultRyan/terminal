@@ -18,6 +18,7 @@
     <CppWinRTNamespaceMergeDepth>4</CppWinRTNamespaceMergeDepth>
     <XamlComponentResourceLocation>nested</XamlComponentResourceLocation>
     <VersionInfoFileDescription>Windows Terminal Markdown Control Library</VersionInfoFileDescription>
+    <CppWinRTBuildModule>true</CppWinRTBuildModule>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>
@@ -50,6 +51,9 @@
     </ClCompile>
     <ClCompile Include="MarkdownToXaml.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="$(OpenConsoleDir)src\cascadia\inc\winrt_module_hooks.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="Builder.idl" />
@@ -70,6 +74,9 @@
       make sure that if you add a cppwinrt dependency to any of these projects,
       you also update all the consumers
     -->
+    <ProjectReference Include="$(OpenConsoleDir)src\cascadia\CppWinRTModule\CppWinRTModule.vcxproj">
+      <CppWinRTConsumeModule>true</CppWinRTConsumeModule>
+    </ProjectReference>
     <ProjectReference Include="$(OpenConsoleDir)src\types\lib\types.vcxproj">
       <Project>{18D09A24-8240-42D6-8CB6-236EEE820263}</Project>
     </ProjectReference>
@@ -82,6 +89,28 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(OpenConsoleDir)src\cppwinrt.build.post.props" />
+
+  <!-- Workaround: XAML compiler generated .cpp files (XamlTypeInfo.g.cpp, etc.)
+       use winrt projected types but don't know about C++20 modules. We can't
+       use /FI (PCH discards it) or edit the generated files. Instead, we
+       author wrapper .cpp files that set up WINRT_IMPORT_MODULE and import
+       the needed modules before #including the generated file. A target
+       swaps out the generated items for our wrappers in ClCompile. -->
+  <ItemGroup>
+    <ClCompile Include="XamlTypeInfo.module.cpp" />
+    <ClCompile Include="XamlTypeInfo.Impl.module.cpp" />
+  </ItemGroup>
+  <!-- Remove XAML-generated .cpp from compilation after they're generated,
+       replacing them with our module-aware wrappers. Using Remove at target
+       level because the items are added dynamically by MarkupCompilePass2. -->
+  <Target Name="ReplaceXamlGeneratedWithWrappers"
+          AfterTargets="MarkupCompilePass2"
+          BeforeTargets="ClCompile">
+    <ItemGroup>
+      <ClCompile Remove="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g'" />
+    </ItemGroup>
+  </Target>
+
   <!-- This -must- go after cppwinrt.build.post.props because that includes many VS-provided props including appcontainer.common.props, which stomps on what cppwinrt.targets did. -->
   <Import Project="$(OpenConsoleDir)src\common.nugetversions.targets" />
 </Project>

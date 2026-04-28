@@ -744,6 +744,7 @@
       <Build Solution="Fuzzing|x86" Project="false" />
     </Project>
     <Project Path="src/cascadia/UIMarkdown/UIMarkdown.vcxproj" Id="7615f03f-e56d-4db4-b23d-bd4fb80db36f">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <Build Solution="Debug|Any CPU" Project="false" />
       <Build Solution="Fuzzing|*" Project="false" />
       <Build Solution="Release|Any CPU" Project="false" />

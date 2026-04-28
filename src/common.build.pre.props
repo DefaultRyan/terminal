@@ -96,6 +96,7 @@
   <!-- For ALL build types-->
   <PropertyGroup Label="Configuration">
     <PlatformToolset>v145</PlatformToolset>
+    <!-- <VCToolsVersion>14.51.36231</VCToolsVersion> -->
     <CharacterSet>Unicode</CharacterSet>
     <LinkIncremental>false</LinkIncremental>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
