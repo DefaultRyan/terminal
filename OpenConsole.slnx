@@ -537,6 +537,7 @@
       <Build Solution="Fuzzing|x86" Project="false" />
     </Project>
     <Project Path="src/cascadia/TerminalControl/TerminalControlLib.vcxproj" Id="ca5cad1a-44bd-4ac7-ac72-6ca5b3ab89ed">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalConnection/TerminalConnection.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalCore/lib/TerminalCore-lib.vcxproj" />
       <BuildDependency Project="src/renderer/atlas/atlas.vcxproj" />

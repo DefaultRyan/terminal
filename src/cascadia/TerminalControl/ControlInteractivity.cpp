@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "ControlInteractivity.h"
 #include <DefaultSettings.h>
 #include <unicode.hpp>

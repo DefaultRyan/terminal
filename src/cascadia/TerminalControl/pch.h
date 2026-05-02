@@ -23,43 +23,15 @@
 #undef GetCurrentTime
 #endif
 
-#include <wil/cppwinrt.h>
-
 #include <Unknwn.h>
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Foundation.Collections.h>
-#include <winrt/Windows.system.h>
-#include <winrt/Windows.Graphics.Display.h>
-#include <winrt/windows.ui.core.h>
-#include <winrt/Windows.ui.input.h>
-#include <winrt/Windows.UI.ViewManagement.h>
-#include <winrt/Windows.UI.Xaml.h>
-#include <winrt/Windows.UI.Xaml.Automation.Peers.h>
-#include <winrt/Windows.UI.Text.Core.h>
-#include <winrt/Windows.UI.Xaml.Controls.h>
-#include <winrt/Windows.UI.Xaml.Controls.Primitives.h>
-#include <winrt/Windows.UI.Xaml.Data.h>
-#include <winrt/Windows.Ui.Xaml.Documents.h>
-#include <winrt/Windows.UI.Xaml.Media.h>
-#include <winrt/Windows.UI.Xaml.Media.Animation.h>
-#include <winrt/Windows.UI.Xaml.Media.Imaging.h>
-#include <winrt/Windows.UI.Xaml.Input.h>
-#include <winrt/Windows.UI.Xaml.Interop.h>
-#include <winrt/Windows.ui.xaml.markup.h>
-#include <winrt/Windows.ui.xaml.shapes.h>
-#include <winrt/Windows.ApplicationModel.DataTransfer.h>
-#include <winrt/Windows.Storage.h>
-#include <winrt/Windows.Storage.Streams.h>
-#include <winrt/Windows.UI.Xaml.Shapes.h>
 
-#include <winrt/Microsoft.UI.Xaml.Controls.h>
-#include <winrt/Microsoft.UI.Xaml.Controls.Primitives.h>
-#include <winrt/Microsoft.UI.Xaml.XamlTypeInfo.h>
-
-#include <winrt/Microsoft.Terminal.TerminalConnection.h>
-#include <winrt/Microsoft.Terminal.Core.h>
-
-#include <winrt/Microsoft.Terminal.UI.h>
+// Workaround: STL headers included by downstream headers after module imports
+// cause import-then-include redefinition errors. Pre-include them here.
+#include <variant>
+#include <shared_mutex>
+// Workaround: winioctl.h gets included twice from different paths in
+// HwndTerminal.cpp's include chain, causing enum redefinition.
+#include <winioctl.h>
 
 #include <windows.ui.xaml.media.dxinterop.h>
 
@@ -71,15 +43,3 @@ TRACELOGGING_DECLARE_PROVIDER(g_hTerminalControlProvider);
 #include <ShlObj_core.h>
 #include <WinUser.h>
 #include <UIAutomationCore.h>
-
-#include "til.h"
-#include <til/mutex.h>
-#include <til/winrt.h>
-
-#include <SafeDispatcherTimer.h>
-#include <ThrottledFunc.h>
-
-#include <cppwinrt_utils.h>
-#include <wil/cppwinrt_helpers.h> // must go after the CoreDispatcher type is defined
-
-#include <LibraryResources.h>
