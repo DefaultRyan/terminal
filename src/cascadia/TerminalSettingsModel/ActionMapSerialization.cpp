@@ -7,6 +7,7 @@
 // - Mike Griese - May 2019
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "ActionMap.h"
 #include "ActionAndArgs.h"
 #include "KeyChordSerialization.h"

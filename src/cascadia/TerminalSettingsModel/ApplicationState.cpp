@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "ApplicationState.h"
 #include "CascadiaSettings.h"
 #include "ApplicationState.g.cpp"

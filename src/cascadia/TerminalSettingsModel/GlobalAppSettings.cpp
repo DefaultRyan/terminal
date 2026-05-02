@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "GlobalAppSettings.h"
 #include "../../types/inc/Utils.hpp"
 #include "JsonUtils.h"

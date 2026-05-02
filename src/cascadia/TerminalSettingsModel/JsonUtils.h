@@ -860,6 +860,7 @@ namespace Microsoft::Terminal::Settings::Model::JsonUtils
     {
         winrt::Windows::UI::Color FromJson(const Json::Value& json) const
         {
+#pragma warning(suppress : 4244) // Workaround: C++20 modules change til::color conversion path, triggering narrowing warning
             return static_cast<winrt::Windows::UI::Color>(ConversionTrait<til::color>{}.FromJson(json));
         }
 
@@ -886,6 +887,7 @@ namespace Microsoft::Terminal::Settings::Model::JsonUtils
     {
         winrt::Microsoft::Terminal::Core::Color FromJson(const Json::Value& json) const
         {
+#pragma warning(suppress : 4244) // Workaround: C++20 modules change til::color conversion path, triggering narrowing warning
             return static_cast<winrt::Microsoft::Terminal::Core::Color>(ConversionTrait<til::color>{}.FromJson(json));
         }
 

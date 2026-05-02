@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "CascadiaSettings.h"
 #include "CascadiaSettings.g.cpp"
 #include "MatchProfilesEntry.h"
@@ -668,9 +669,9 @@ void CascadiaSettings::_validateProfileEnvironmentVariables()
         {
             continue;
         }
-        for (const auto [key, value] : profile.EnvironmentVariables())
+        for (const auto kv : profile.EnvironmentVariables())
         {
-            const auto iterator = envVarNames.insert(key.c_str());
+            const auto iterator = envVarNames.insert(kv.Key().c_str());
             if (!iterator.second)
             {
                 _warnings.Append(SettingsLoadWarnings::InvalidProfileEnvironmentVariables);

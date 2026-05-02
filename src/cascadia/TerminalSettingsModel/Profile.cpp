@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "Profile.h"
 #include "JsonUtils.h"
 #include "../../types/inc/Utils.hpp"

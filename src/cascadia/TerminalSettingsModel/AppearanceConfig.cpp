@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "AppearanceConfig.h"
 #include "AppearanceConfig.g.cpp"
 #include "TerminalSettingsSerializationHelpers.h"

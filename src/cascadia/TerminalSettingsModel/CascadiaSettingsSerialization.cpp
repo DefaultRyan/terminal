@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "CascadiaSettings.h"
 
 #include <fmt/chrono.h>
@@ -1348,9 +1349,9 @@ void CascadiaSettings::_researchOnLoad()
         auto collectSendInput = [&]() {
             auto totalSendInput = 0;
             const auto& allActions = GlobalSettings().ActionMap().AvailableActions();
-            for (const auto&& [name, actionAndArgs] : allActions)
+            for (const auto&& kv : allActions)
             {
-                if (actionAndArgs.Action() == ShortcutAction::SendInput)
+                if (kv.Value().Action() == ShortcutAction::SendInput)
                 {
                     totalSendInput++;
                 }

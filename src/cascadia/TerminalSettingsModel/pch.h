@@ -23,27 +23,12 @@
 #undef GetCurrentTime
 #endif
 
-#include <wil/cppwinrt.h>
 #include <wil/registry.h>
 
-#include <winrt/Windows.ApplicationModel.AppExtensions.h>
-#include <winrt/Windows.ApplicationModel.Resources.Core.h>
-#include <winrt/Windows.ApplicationModel.h>
-#include <winrt/Windows.Foundation.Collections.h>
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Storage.h>
-#include <winrt/Windows.Storage.Streams.h>
-#include <winrt/Windows.System.h>
-#include <winrt/Windows.UI.Core.h>
-#include <winrt/Windows.UI.ViewManagement.h>
-#include <winrt/Windows.UI.Xaml.Controls.h>
-#include <winrt/Windows.UI.Xaml.Media.h>
-
-#include <winrt/Microsoft.UI.Xaml.Controls.h>
-
-#include <winrt/Microsoft.Terminal.Core.h>
-#include <winrt/Microsoft.Terminal.Control.h>
-#include <winrt/Microsoft.Terminal.TerminalConnection.h>
+// Workaround: STL headers included by til/*.h after module imports (import std
+// via winrt modules) cause redefinition errors. Pre-include them here so they
+// appear before the import boundary.
+#include <latch>
 
 // Including TraceLogging essentials for the binary
 #include <TraceLoggingProvider.h>
@@ -55,14 +40,5 @@ TRACELOGGING_DECLARE_PROVIDER(g_hSettingsModelProvider);
 // JsonCpp
 #include <json/json.h>
 
-// Manually include til after we include Windows.Foundation to give it winrt superpowers
-#include "til.h"
-#include <til/winrt.h>
-
 #include <til/mutex.h>
 #include <til/throttled_func.h>
-
-#include <cppwinrt_utils.h>
-#include <wil/cppwinrt_helpers.h> // must go after the CoreDispatcher type is defined
-
-#include <LibraryResources.h>

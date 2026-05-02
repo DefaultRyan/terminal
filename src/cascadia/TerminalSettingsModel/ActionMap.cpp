@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "AllShortcutActions.h"
 #include "ActionMap.h"
 #include "Command.h"

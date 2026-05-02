@@ -1,5 +1,6 @@
 #include "pch.h"
-#include "winrt/Microsoft.Terminal.Settings.Model.h"
+#include "ModulePreamble.h"
+import winrt.Microsoft.Terminal.Settings.Model;
 
 // Through the power of LTCG, this will all get deleted... and all call
 // sites too.

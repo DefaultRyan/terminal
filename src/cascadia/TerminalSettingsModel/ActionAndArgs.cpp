@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "AllShortcutActions.h"
 #include "ActionArgs.h"
 #include "ActionAndArgs.h"

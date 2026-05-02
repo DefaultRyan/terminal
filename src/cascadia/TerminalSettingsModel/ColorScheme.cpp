@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "ColorScheme.h"
 #include "../../types/inc/Utils.hpp"
 #include "../../types/inc/colorTable.hpp"
