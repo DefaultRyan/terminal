@@ -38,6 +38,8 @@ using namespace ::Microsoft::Console;
 
 namespace winrt::Microsoft::Terminal::TerminalConnection::implementation
 {
+    using namespace winrt::Windows::Foundation::Collections;
+
     // Function Description:
     // - launches the client application attached to the new pseudoconsole
     void ConptyConnection::_LaunchAttachedClient()
@@ -239,9 +241,9 @@ namespace winrt::Microsoft::Terminal::TerminalConnection::implementation
         if (environmentOverrides)
         {
             Windows::Foundation::Collections::ValueSet env{};
-            for (const auto& kv : environmentOverrides)
+            for (const auto& [k, v] : environmentOverrides)
             {
-                env.Insert(kv.Key(), Windows::Foundation::PropertyValue::CreateString(kv.Value()));
+                env.Insert(k, Windows::Foundation::PropertyValue::CreateString(v));
             }
             vs.Insert(L"environment", env);
         }
