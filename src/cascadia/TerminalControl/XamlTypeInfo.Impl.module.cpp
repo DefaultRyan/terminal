@@ -4,4 +4,6 @@
 #include "pch.h"
 #include "ModulePreamble.h"
 
-#include "Generated Files\XamlTypeInfo.Impl.g.cpp"
+#if __has_include("Generated Files\\XamlTypeInfo.Impl.g.cpp")
+#include "Generated Files\\XamlTypeInfo.Impl.g.cpp"
+#endif

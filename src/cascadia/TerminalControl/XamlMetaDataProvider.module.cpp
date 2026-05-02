@@ -4,4 +4,6 @@
 #include "pch.h"
 #include "ModulePreamble.h"
 
-#include "Generated Files\XamlMetaDataProvider.cpp"
+#if __has_include("Generated Files\\XamlMetaDataProvider.cpp")
+#include "Generated Files\\XamlMetaDataProvider.cpp"
+#endif

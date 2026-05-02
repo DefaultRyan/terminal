@@ -22,4 +22,6 @@ import winrt.Microsoft.Terminal.UI;
 #include <cppwinrt_utils_module.h>
 #include <LibraryResources.h>
 
-#include "Generated Files\XamlTypeInfo.g.cpp"
+#if __has_include("Generated Files\\XamlTypeInfo.g.cpp")
+#include "Generated Files\\XamlTypeInfo.g.cpp"
+#endif
