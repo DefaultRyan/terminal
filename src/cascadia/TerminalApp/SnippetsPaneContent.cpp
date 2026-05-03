@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "SnippetsPaneContent.h"
 #include "SnippetsPaneContent.g.cpp"
 #include "FilteredTask.g.cpp"

@@ -57,6 +57,16 @@
        module filter. Each consumer project builds its own local reference
        modules for these WinMDs. -->
 
+  <!-- Add the XAML Hosting contract WinMD so the platform module includes
+       WindowsXamlManager and other hosting types. -->
+  <Target Name="CppWinRTAddHostingContract"
+          BeforeTargets="GetCppWinRTPlatformWinMDInputs"
+          DependsOnTargets="ResolveAssemblyReferences">
+    <ItemGroup>
+      <CppWinRTPlatformWinMDReferences Include="$(WindowsSDK_MetadataPathVersioned)\Windows.UI.Xaml.Hosting.HostingContract\*\*.winmd" />
+    </ItemGroup>
+  </Target>
+
   <Import Project="$(OpenConsoleDir)src\cppwinrt.build.post.props" />
   <Import Project="$(OpenConsoleDir)src\common.nugetversions.targets" />
 </Project>

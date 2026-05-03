@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "MarkdownPaneContent.h"
 #include "MarkdownPaneContent.g.cpp"
 #include <til/io.h>

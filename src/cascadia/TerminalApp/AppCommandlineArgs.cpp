@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "AppCommandlineArgs.h"
 #include "../types/inc/utils.hpp"
 #include "TerminalSettingsModel/ModelSerializationHelpers.h"

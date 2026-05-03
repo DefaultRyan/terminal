@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "TerminalSettingsCache.h"
 #include "../TerminalSettingsAppAdapterLib/TerminalSettings.h"
 

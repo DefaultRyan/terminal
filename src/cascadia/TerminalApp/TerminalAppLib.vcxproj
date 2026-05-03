@@ -21,6 +21,7 @@
       We do this so we can delay the Settings UI DLL loading until absolutely necessary.
     -->
     <XamlCodeGenerationControlFlags>DoNotGenerateOtherProviders</XamlCodeGenerationControlFlags>
+    <CppWinRTBuildModule>true</CppWinRTBuildModule>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>
@@ -382,6 +383,9 @@
       make sure that if you add a cppwinrt dependency to any of these projects,
       you also update all the consumers
     -->
+    <ProjectReference Include="$(OpenConsoleDir)src\cascadia\CppWinRTModule\CppWinRTModule.vcxproj">
+      <CppWinRTConsumeModule>true</CppWinRTConsumeModule>
+    </ProjectReference>
     <ProjectReference Include="$(OpenConsoleDir)src\types\lib\types.vcxproj" />
     <ProjectReference Include="$(OpenConsoleDir)src\cascadia\WinRTUtils\WinRTUtils.vcxproj">
       <Project>{CA5CAD1A-039A-4929-BA2A-8BEB2E4106FE}</Project>
@@ -494,6 +498,21 @@
   </ItemDefinitionGroup>
   <!-- ========================= Globals ======================== -->
   <Import Project="$(OpenConsoleDir)src\cppwinrt.build.post.props" />
+
+  <!-- XAML wrapper pattern -->
+  <ItemGroup>
+    <ClCompile Include="XamlTypeInfo.module.cpp" />
+    <ClCompile Include="XamlTypeInfo.Impl.module.cpp" />
+    <ClCompile Include="XamlMetaDataProvider.module.cpp" />
+  </ItemGroup>
+  <Target Name="ReplaceXamlGeneratedWithWrappers"
+          AfterTargets="MarkupCompilePass2"
+          BeforeTargets="ClCompile">
+    <ItemGroup>
+      <ClCompile Remove="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g' or '%(Filename)' == 'XamlMetaDataProvider'" />
+    </ItemGroup>
+  </Target>
+
   <!-- This -must- go after cppwinrt.build.post.props because that includes many VS-provided props including appcontainer.common.props, which stomps on what cppwinrt.targets did. -->
   <Import Project="$(OpenConsoleDir)src\common.nugetversions.targets" />
   <!--

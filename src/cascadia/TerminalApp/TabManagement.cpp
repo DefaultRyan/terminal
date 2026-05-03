@@ -9,6 +9,7 @@
 //
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "TerminalPage.h"
 #include "Utils.h"
 #include "../../types/inc/utils.hpp"

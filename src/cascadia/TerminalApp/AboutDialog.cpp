@@ -3,6 +3,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "AboutDialog.h"
 #include "AboutDialog.g.cpp"
 

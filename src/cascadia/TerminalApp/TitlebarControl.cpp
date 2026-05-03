@@ -5,6 +5,7 @@
 //
 
 #include "pch.h"
+#include "ModulePreamble.h"
 
 #include "TitlebarControl.h"
 #include "../../types/inc/ColorFix.hpp"

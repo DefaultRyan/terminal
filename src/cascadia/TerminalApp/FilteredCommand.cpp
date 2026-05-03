@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "CommandPalette.h"
 #include "fzf/fzf.h"
 

@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "ColorPickupFlyout.h"
 #include "ColorPickupFlyout.g.cpp"
 

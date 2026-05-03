@@ -3,6 +3,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "TerminalPage.h"
 
 #include <TerminalCore/ControlKeyStates.hpp>
