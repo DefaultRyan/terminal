@@ -13,12 +13,14 @@
 
 import winrt_base;
 import winrt.Windows.Foundation;
+import winrt.Windows.Foundation.Collections;
 import winrt.Windows.System;     // DispatcherQueue for wil::resume_foreground
 import winrt.Windows.UI.Core;    // CoreDispatcher for wil::resume_foreground
 
 #define WINRT_IMPORT_MODULE
 #define WINRT_BASE_H // Workaround: base.h lacks WINRT_IMPORT_MODULE guard, must suppress manually
 #include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.System.h>
 #include <winrt/Windows.UI.Core.h>
 

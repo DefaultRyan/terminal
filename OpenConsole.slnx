@@ -586,6 +586,7 @@
       <Build Solution="Fuzzing|x86" Project="false" />
     </Project>
     <Project Path="src/cascadia/TerminalSettingsEditor/Microsoft.Terminal.Settings.Editor.vcxproj" Id="ca5cad1a-0b5e-45c3-96a8-bb496bfe4e32">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalSettingsModel/dll/Microsoft.Terminal.Settings.Model.vcxproj" />
       <BuildType Solution="AuditMode|*" Project="Release" />
       <Platform Solution="AuditMode|ARM64" Project="x64" />

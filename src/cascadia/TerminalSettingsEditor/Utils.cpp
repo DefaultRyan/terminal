@@ -4,6 +4,7 @@
 #pragma once
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "Utils.h"
 
 using namespace winrt;

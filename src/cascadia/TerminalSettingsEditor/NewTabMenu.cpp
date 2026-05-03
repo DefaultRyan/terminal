@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "NewTabMenu.h"
 #include "NewTabMenu.g.cpp"
 #include "NewTabMenuEntryTemplateSelector.g.cpp"

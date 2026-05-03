@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "Profiles_Base_Orphaned.h"
 #include "Profiles_Base_Orphaned.g.cpp"
 #include "ProfileViewModel.h"

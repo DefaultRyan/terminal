@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "MainPage.h"
 #include "MainPage.g.cpp"
 #include "Launch.h"

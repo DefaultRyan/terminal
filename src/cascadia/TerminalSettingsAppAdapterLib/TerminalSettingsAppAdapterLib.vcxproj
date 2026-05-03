@@ -16,6 +16,7 @@
     <OpenConsoleUniversalApp>true</OpenConsoleUniversalApp>
     <CppWinRTGenerateWindowsMetadata>false</CppWinRTGenerateWindowsMetadata>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <AllProjectBMIsArePublic>false</AllProjectBMIsArePublic>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>

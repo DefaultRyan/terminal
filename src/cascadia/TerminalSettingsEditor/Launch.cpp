@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "Launch.h"
 #include "Launch.g.cpp"
 #include "EnumEntry.h"

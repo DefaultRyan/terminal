@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "EditAction.h"
 #include "EditAction.g.cpp"
 #include "LibraryResources.h"

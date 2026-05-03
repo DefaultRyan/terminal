@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "SearchIndex.h"
 #include "FilteredSearchResult.g.cpp"
 #include "NavConstants.h"

@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "Extensions.h"
 #include "Extensions.g.cpp"
 #include "ExtensionPackageViewModel.g.cpp"

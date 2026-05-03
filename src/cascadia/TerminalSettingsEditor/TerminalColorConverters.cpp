@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "TerminalColorConverters.h"
 #include "ColorToBrushConverter.g.cpp"
 #include "ColorToStringConverter.g.cpp"

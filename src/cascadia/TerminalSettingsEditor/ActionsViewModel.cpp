@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "ActionsViewModel.h"
 #include "ActionsViewModel.g.cpp"
 #include "CommandViewModel.g.cpp"

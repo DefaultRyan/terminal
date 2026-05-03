@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "Profiles_Advanced.h"
 #include "Profiles_Advanced.g.cpp"
 #include "ProfileViewModel.h"
