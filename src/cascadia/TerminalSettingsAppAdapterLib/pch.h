@@ -26,6 +26,3 @@
 #include <unknwn.h>
 
 #include <hstring.h>
-
-// Manually include til after we include Windows.Foundation to give it winrt superpowers
-#include "til.h"

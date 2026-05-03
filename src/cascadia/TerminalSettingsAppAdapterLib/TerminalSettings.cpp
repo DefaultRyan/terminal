@@ -9,12 +9,20 @@ import winrt.Windows.Foundation;
 import winrt.Windows.Foundation.Collections;
 import winrt.Windows.UI.Xaml;
 import winrt.Windows.UI.ViewManagement;
+import winrt.Microsoft.Terminal.Core;
+import winrt.Microsoft.Terminal.Control;
+import winrt.Microsoft.Terminal.Settings.Model;
 
 #include <wil_cppwinrt_module.h>
 #include <til_winrt_module.h>
+#include <til_color_module.h>
+
+#include "til.h"
+
 #include <cppwinrt_utils_module.h>
 #include <LibraryResources.h>
 
+// Set component header guards
 #include <winrt/Microsoft.Terminal.Settings.Model.h>
 #include <winrt/Microsoft.Terminal.Core.h>
 #include <winrt/Microsoft.Terminal.Control.h>
