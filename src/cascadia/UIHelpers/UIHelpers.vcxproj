@@ -9,6 +9,8 @@
     <OpenConsoleUniversalApp>true</OpenConsoleUniversalApp>
     <VersionInfoFileDescription>Windows Terminal UI Support Library</VersionInfoFileDescription>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <CppWinRTModuleInclude>Microsoft.Terminal</CppWinRTModuleInclude>
+    <CppWinRTModuleExclude>Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>

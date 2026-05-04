@@ -10,7 +10,7 @@
     <SubSystem>Console</SubSystem>
     <OpenConsoleUniversalApp>true</OpenConsoleUniversalApp>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
-    <AllProjectBMIsArePublic>false</AllProjectBMIsArePublic>
+    <CppWinRTModuleExclude>Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>

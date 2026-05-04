@@ -52,10 +52,9 @@
   <!-- No source files needed — the NuGet targets add .ixx files automatically
        via CppWinRTAddModuleInterfaces when CppWinRTBuildModule=true. -->
 
-  <!-- NOTE: MUX/WinUI and WebView2 WinMDs are NOT included here.
-       Sharing reference projection modules needs more polish in the cppwinrt
-       module filter. Each consumer project builds its own local reference
-       modules for these WinMDs. -->
+  <!-- MUX/WinUI and WebView2 modules are built here via TerminalMUX NuGet.
+       Consumer projects use CppWinRTModuleExclude to avoid rebuilding
+       namespaces already provided by their static lib dependencies. -->
 
   <!-- Add the XAML Hosting contract WinMD so the platform module includes
        WindowsXamlManager and other hosting types. -->
@@ -64,6 +63,17 @@
           DependsOnTargets="ResolveAssemblyReferences">
     <ItemGroup>
       <CppWinRTPlatformWinMDReferences Include="$(WindowsSDK_MetadataPathVersioned)\Windows.UI.Xaml.Hosting.HostingContract\*\*.winmd" />
+    </ItemGroup>
+  </Target>
+
+  <!-- Add MUX and WebView2 WinMDs as platform inputs so their modules
+       are built by the shared module builder, not by each consumer. -->
+  <Target Name="CppWinRTAddMuxWinMDs"
+          BeforeTargets="GetCppWinRTPlatformWinMDInputs"
+          DependsOnTargets="ResolveAssemblyReferences">
+    <ItemGroup>
+      <CppWinRTPlatformWinMDReferences Include="$(OpenConsoleDir)packages\Microsoft.UI.Xaml.2.8.4\lib\uap10.0\Microsoft.UI.Xaml.winmd" />
+      <CppWinRTPlatformWinMDReferences Include="$(WebView2PackageRoot)\lib\Microsoft.Web.WebView2.Core.winmd" />
     </ItemGroup>
   </Target>
 
