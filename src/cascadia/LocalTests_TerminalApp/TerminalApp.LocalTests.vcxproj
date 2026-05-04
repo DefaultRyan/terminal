@@ -25,6 +25,9 @@
     <!-- TerminalCppWinrt is intentionally not set -->
     <TerminalMUX>true</TerminalMUX>
     <TerminalThemeHelpers>true</TerminalThemeHelpers>
+    <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <CppWinRTModuleInclude>Microsoft.Terminal;TerminalApp;Microsoft.Management</CppWinRTModuleInclude>
+    <CppWinRTModuleExclude>Microsoft.Terminal.Core;Microsoft.Terminal.TerminalConnection;Microsoft.Terminal.Control;Microsoft.Terminal.Settings.Model;Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
   </PropertyGroup>
 
   <Import Project="$(SolutionDir)\common.openconsole.props" Condition="'$(OpenConsoleDir)'==''" />
@@ -34,6 +37,7 @@
   <!-- ========================= Headers ======================== -->
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="ModulePreamble.h" />
     <ClInclude Include="CppWinrtTailored.h" />
   </ItemGroup>
 
@@ -50,6 +54,9 @@
 
   <!-- ========================= Project References ======================== -->
   <ItemGroup>
+    <ProjectReference Include="$(OpenConsoleDir)src\cascadia\CppWinRTModule\CppWinRTModule.vcxproj">
+      <CppWinRTConsumeModule>true</CppWinRTConsumeModule>
+    </ProjectReference>
     <ProjectReference Include="$(OpenConsoleDir)\src\cascadia\TerminalApp\TerminalAppLib.vcxproj" />
     <ProjectReference Include="$(OpenConsoleDir)\src\types\lib\types.vcxproj" />
 

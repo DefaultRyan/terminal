@@ -27,56 +27,19 @@ Author(s):
 #undef GetCurrentTime
 #endif
 
-#include <wil/cppwinrt.h>
 #include <Unknwn.h>
 #include <hstring.h>
 
 #include <WexTestClass.h>
 #include <json/json.h>
 #include "consoletaeftemplates.hpp"
-#include "winrtTaefTemplates.hpp"
 
-#include <winrt/Windows.ApplicationModel.Resources.Core.h>
-#include "winrt/Windows.UI.Xaml.Markup.h"
-#include <winrt/Windows.system.h>
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Foundation.Collections.h>
-#include <winrt/windows.ui.core.h>
-#include <winrt/Windows.ui.input.h>
-#include <winrt/Windows.UI.Xaml.Controls.h>
-#include <winrt/Windows.UI.Xaml.Controls.Primitives.h>
-#include <winrt/Windows.UI.Xaml.Data.h>
-#include <winrt/Windows.ui.xaml.media.h>
-#include <winrt/Windows.ui.xaml.input.h>
-#include <winrt/Windows.UI.Xaml.Markup.h>
-#include <winrt/Windows.UI.Xaml.Documents.h>
-
-#include <windows.ui.xaml.media.dxinterop.h>
-
-#include <winrt/windows.applicationmodel.core.h>
-
-#include <winrt/Microsoft.Terminal.TerminalConnection.h>
-#include <winrt/Microsoft.Terminal.Core.h>
-#include <winrt/Microsoft.Terminal.Control.h>
-#include <winrt/Microsoft.Terminal.Settings.Model.h>
-
-#include <winrt/Microsoft.UI.Xaml.Controls.h>
+// Pre-include STL headers that conflict with import std;
+#include <variant>
+#include <latch>
 
 #include <regex>
 #include <CLI/CLI.hpp>
 
+#include <windows.ui.xaml.media.dxinterop.h>
 #include <shobjidl_core.h>
-
-// Manually include til after we include Windows.Foundation to give it winrt superpowers
-#include "til.h"
-
-#include <SafeDispatcherTimer.h>
-
-// Common includes for most tests:
-#include "../../inc/conattrs.hpp"
-#include "../../types/inc/utils.hpp"
-#include "../../inc/DefaultSettings.h"
-
-#include <cppwinrt_utils.h>
-
-#include <til/winrt.h>

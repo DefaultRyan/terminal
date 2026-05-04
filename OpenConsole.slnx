@@ -628,6 +628,7 @@
   </Folder>
   <Folder Name="/Terminal/Tests/">
     <Project Path="src/cascadia/LocalTests_TerminalApp/TerminalApp.LocalTests.vcxproj" Id="ca5cad1a-b11c-4ddb-a4fe-c3afae9b5506">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalApp/dll/TerminalApp.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalApp/TerminalAppLib.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalSettingsModel/dll/Microsoft.Terminal.Settings.Model.vcxproj" />
