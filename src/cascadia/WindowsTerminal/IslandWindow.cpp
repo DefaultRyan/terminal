@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "IslandWindow.h"
 #include "../types/inc/Viewport.hpp"
 #include "resource.h"

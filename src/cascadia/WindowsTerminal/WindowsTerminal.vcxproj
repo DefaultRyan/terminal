@@ -15,6 +15,7 @@
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <VersionInfoFileDescription>Windows Terminal Host</VersionInfoFileDescription>
     <PgoTarget>true</PgoTarget>
+    <CppWinRTBuildModule>true</CppWinRTBuildModule>
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet Dependencies">
@@ -49,6 +50,7 @@
   <!-- Source Files -->
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="ModulePreamble.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="AppHost.h" />
     <ClInclude Include="BaseWindow.h" />
@@ -79,6 +81,9 @@
   <ItemGroup>
     <!-- Even though we do have proper recursive dependencies, we want to keep some of these here
          so that the AppX Manifest contains their activatable classes. -->
+    <ProjectReference Include="$(OpenConsoleDir)src\cascadia\CppWinRTModule\CppWinRTModule.vcxproj">
+      <CppWinRTConsumeModule>true</CppWinRTConsumeModule>
+    </ProjectReference>
     <ProjectReference Include="$(OpenConsoleDir)src\cascadia\TerminalControl\dll\TerminalControl.vcxproj" />
     <ProjectReference Include="$(OpenConsoleDir)src\cascadia\TerminalConnection\TerminalConnection.vcxproj" />
     <ProjectReference Include="$(OpenConsoleDir)src\cascadia\TerminalSettingsModel\dll\Microsoft.Terminal.Settings.Model.vcxproj" />

@@ -4,6 +4,7 @@
 *                                                       *
 ********************************************************/
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "NonClientIslandWindow.h"
 
 #include <dwmapi.h>

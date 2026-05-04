@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "WindowEmperor.h"
 #include "resource.h"
 #include "../types/inc/User32Utils.hpp"

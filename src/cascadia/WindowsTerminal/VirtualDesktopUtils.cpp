@@ -9,6 +9,7 @@
 // April 2021.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 
 #include "VirtualDesktopUtils.h"
 

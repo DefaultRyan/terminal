@@ -662,6 +662,7 @@
       <Deploy Solution="Release|x86" />
     </Project>
     <Project Path="src/cascadia/UnitTests_Control/Control.UnitTests.vcxproj" Id="c323daee-b307-4c7b-ace5-7293cbefcb5b">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalControl/TerminalControlLib.vcxproj" />
       <BuildType Solution="AuditMode|x64" Project="Release" />
       <Platform Solution="*|Any CPU" Project="Win32" />
@@ -684,6 +685,7 @@
       <Build Solution="Fuzzing|x86" Project="false" />
     </Project>
     <Project Path="src/cascadia/UnitTests_TerminalCore/UnitTests.vcxproj" Id="2c2beef4-9333-4d05-b12a-1905cbf112f9">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <BuildDependency Project="src/host/ut_lib/host.unittest.vcxproj" />
       <Platform Solution="*|Any CPU" Project="Win32" />
       <Build Solution="*|Any CPU" Project="false" />
@@ -789,6 +791,7 @@
       <Build Solution="Fuzzing|x86" Project="false" />
     </Project>
     <Project Path="src/cascadia/WindowsTerminal/WindowsTerminal.vcxproj" Id="ca5cad1a-1754-4a9d-93d7-857a9d17cb1b">
+      <BuildDependency Project="src/cascadia/CppWinRTModule/CppWinRTModule.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalApp/dll/TerminalApp.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalControl/dll/TerminalControl.vcxproj" />
       <BuildDependency Project="src/cascadia/TerminalCore/lib/TerminalCore-lib.vcxproj" />
