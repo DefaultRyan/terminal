@@ -28,32 +28,15 @@ Licensed under the MIT license.
 #undef GetCurrentTime
 #endif
 
-#include <wil/cppwinrt.h>
 #include <Unknwn.h>
 #include <hstring.h>
 
 #include <WexTestClass.h>
 #include "consoletaeftemplates.hpp"
 
-#include <winrt/Windows.ApplicationModel.Resources.Core.h>
-#include <winrt/Windows.system.h>
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Foundation.Collections.h>
+// Pre-include STL headers that conflict with import std;
+#include <variant>
 
-#include <winrt/Microsoft.Terminal.Core.h>
-#include <winrt/Microsoft.Terminal.Control.h>
-#include <winrt/Microsoft.Terminal.TerminalConnection.h>
-
-// Manually include til after we include Windows.Foundation to give it winrt superpowers
-#include "til.h"
+// til.h and utils.hpp are included in ModulePreamble.h after module imports
+// so til::color conversion operators light up correctly.
 #include <til/mutex.h>
-#include <til/winrt.h>
-
-#include "ThrottledFunc.h"
-
-// Common includes for most tests:
-#include "../../inc/conattrs.hpp"
-#include "../../types/inc/utils.hpp"
-#include "../../inc/DefaultSettings.h"
-
-#include <cppwinrt_utils.h>

@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 #include "../TerminalControl/EventArgs.h"
 #include "../TerminalControl/ControlCore.h"
 #include "MockControlSettings.h"
