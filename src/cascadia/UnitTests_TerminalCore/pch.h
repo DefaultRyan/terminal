@@ -47,28 +47,17 @@ Author(s):
 #undef GetCurrentTime
 #endif
 
-#include <wil/cppwinrt.h>
 #include <Unknwn.h>
 #include <hstring.h>
 
 #include <WexTestClass.h>
 #include "consoletaeftemplates.hpp"
-#include "winrtTaefTemplates.hpp"
 
-#include <winrt/Windows.system.h>
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Foundation.Collections.h>
-#include <winrt/Windows.UI.Xaml.Data.h>
-
-#include <winrt/Microsoft.Terminal.Core.h>
-
-// Manually include til after we include Windows.Foundation to give it winrt superpowers
-#include "til.h"
+// Pre-include STL headers that conflict with import std;
+#include <variant>
 
 // <Conhost includes>
 // These are needed because the roundtrip tests included in this library also
 // re-use some conhost code that depends on these.
 #include "conddkrefs.h"
 // </Conhost Includes>
-
-#include <cppwinrt_utils.h>

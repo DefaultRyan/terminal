@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 #include "pch.h"
+#include "ModulePreamble.h"
 
 #include "../cascadia/TerminalCore/Terminal.hpp"
 #include "../renderer/inc/DummyRenderer.hpp"

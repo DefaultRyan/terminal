@@ -6,6 +6,7 @@
 * Class Name: SelectionTest
 */
 #include "pch.h"
+#include "ModulePreamble.h"
 #include <WexTestClass.h>
 
 #include "../cascadia/TerminalCore/Terminal.hpp"
