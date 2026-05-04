@@ -15,11 +15,7 @@ import winrt.Windows.UI.Xaml.Markup;
 import winrt.Microsoft.UI.Xaml.Controls;
 import winrt.Microsoft.UI.Xaml.XamlTypeInfo;
 import winrt.Microsoft.Terminal.UI;
-
-#include <wil_cppwinrt_module.h>
-#include <til_winrt_module.h>
-#include <cppwinrt_utils_module.h>
-#include <LibraryResources.h>
+import winrt.Microsoft.Terminal.UI.Markdown;
 
 #if __has_include("Generated Files\\XamlTypeInfo.Impl.g.cpp")
 #include "Generated Files\\XamlTypeInfo.Impl.g.cpp"

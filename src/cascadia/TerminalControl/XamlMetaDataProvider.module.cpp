@@ -1,6 +1,4 @@
-// Wrapper for the XAML-generated XamlMetaDataProvider.cpp.
-// Sets up C++20 module imports before including the generated file.
-
+// Wrapper for the generated XamlMetaDataProvider.cpp.
 #include "pch.h"
 #include "ModulePreamble.h"
 

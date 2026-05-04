@@ -20,6 +20,7 @@
     <CppWinRTNamespaceMergeDepth>3</CppWinRTNamespaceMergeDepth>
     <XamlComponentResourceLocation>nested</XamlComponentResourceLocation>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <AllProjectBMIsArePublic>false</AllProjectBMIsArePublic>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>
@@ -192,12 +193,14 @@
     <ClCompile Include="XamlTypeInfo.module.cpp" />
     <ClCompile Include="XamlTypeInfo.Impl.module.cpp" />
     <ClCompile Include="XamlMetaDataProvider.module.cpp" />
+    <ClCompile Include="TermControl.module.cpp" />
+    <ClCompile Include="SearchBoxControl.module.cpp" />
   </ItemGroup>
   <Target Name="ReplaceXamlGeneratedWithWrappers"
           AfterTargets="MarkupCompilePass2"
           BeforeTargets="ClCompile">
     <ItemGroup>
-      <ClCompile Remove="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g' or '%(Filename)' == 'XamlMetaDataProvider'" />
+      <ClCompile Remove="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g' or '%(Filename)' == 'XamlMetaDataProvider' or '%(Filename)' == 'TermControl.xaml.g' or '%(Filename)' == 'SearchBoxControl.xaml.g'" />
     </ItemGroup>
   </Target>
 

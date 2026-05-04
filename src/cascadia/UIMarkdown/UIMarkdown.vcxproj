@@ -96,6 +96,7 @@
   <ItemGroup>
     <ClCompile Include="XamlTypeInfo.module.cpp" />
     <ClCompile Include="XamlTypeInfo.Impl.module.cpp" />
+    <ClCompile Include="CodeBlock.module.cpp" />
   </ItemGroup>
   <!-- Remove XAML-generated .cpp from compilation after they're generated,
        replacing them with our module-aware wrappers. Using Remove at target
@@ -104,7 +105,7 @@
           AfterTargets="MarkupCompilePass2"
           BeforeTargets="ClCompile">
     <ItemGroup>
-      <ClCompile Remove="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g'" />
+      <ClCompile Remove="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g' or '%(Filename)' == 'CodeBlock.xaml.g'" />
     </ItemGroup>
   </Target>
 

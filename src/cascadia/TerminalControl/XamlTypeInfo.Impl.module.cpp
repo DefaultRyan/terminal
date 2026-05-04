@@ -1,6 +1,4 @@
-// Wrapper for the XAML-generated XamlTypeInfo.Impl.g.cpp.
-// Sets up C++20 module imports before including the generated file.
-
+// Wrapper for the generated XamlTypeInfo.Impl.g.cpp.
 #include "pch.h"
 #include "ModulePreamble.h"
 

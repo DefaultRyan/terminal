@@ -1,4 +1,4 @@
-// Wrapper for the XAML-generated XamlMetaDataProvider.cpp.
+// Wrapper for the generated XamlMetaDataProvider.cpp.
 #include "pch.h"
 #include "ModulePreamble.h"
 

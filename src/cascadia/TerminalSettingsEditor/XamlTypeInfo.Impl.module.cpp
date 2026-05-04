@@ -1,4 +1,4 @@
-// Wrapper for the XAML-generated XamlTypeInfo.Impl.g.cpp.
+// Wrapper for the generated XamlTypeInfo.Impl.g.cpp.
 #include "pch.h"
 #include "ModulePreamble.h"
 
