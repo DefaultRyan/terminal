@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include "pch.h"
+
 #define WINRT_IMPORT_MODULE
 
 import winrt.Windows.ApplicationModel;

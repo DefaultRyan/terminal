@@ -33,6 +33,7 @@
     <XamlComponentResourceLocation>nested</XamlComponentResourceLocation>
     <VersionInfoFileDescription>Windows Terminal Settings UI Library</VersionInfoFileDescription>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <CppWinRTModuleExclude>Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>
@@ -566,17 +567,26 @@
   </ItemDefinitionGroup>
   <Import Project="$(OpenConsoleDir)src\cppwinrt.build.post.props" />
 
-  <!-- XAML wrapper pattern: replace generated .cpp files with module-aware wrappers -->
-  <ItemGroup>
-    <ClCompile Include="XamlTypeInfo.module.cpp" />
-    <ClCompile Include="XamlTypeInfo.Impl.module.cpp" />
-    <ClCompile Include="XamlMetaDataProvider.module.cpp" />
-  </ItemGroup>
-  <Target Name="ReplaceXamlGeneratedWithWrappers"
-          AfterTargets="MarkupCompilePass2"
+  <!-- XAML-generated files need module imports. Inject ModulePreamble.h via /FI
+       and disable PCH so the imports are processed before the generated code. -->
+  <Target Name="InjectModuleImportsIntoXamlGenerated"
+          AfterTargets="ComputeXamlGeneratedCompileInputs"
           BeforeTargets="ClCompile">
     <ItemGroup>
-      <ClCompile Remove="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g' or '%(Filename)' == 'XamlMetaDataProvider'" />
+      <ClCompile Update="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g' or '%(Filename)' == 'XamlMetaDataProvider' or '%(Filename)' == 'XamlLibMetadataProvider.g'">
+        <PrecompiledHeader>NotUsing</PrecompiledHeader>
+        <ForcedIncludeFiles>$(MSBuildProjectDirectory)\ModulePreamble.h</ForcedIncludeFiles>
+      </ClCompile>
+    </ItemGroup>
+  </Target>
+  <Target Name="InjectModuleImportsIntoXamlGeneratedPass2"
+          AfterTargets="ComputeXamlGeneratedCompileInputs"
+          BeforeTargets="CompileXamlGeneratedFiles">
+    <ItemGroup>
+      <ClCompile Update="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g' or '%(Filename)' == 'XamlMetaDataProvider' or '%(Filename)' == 'XamlLibMetadataProvider.g'">
+        <PrecompiledHeader>NotUsing</PrecompiledHeader>
+        <ForcedIncludeFiles>$(MSBuildProjectDirectory)\ModulePreamble.h</ForcedIncludeFiles>
+      </ClCompile>
     </ItemGroup>
   </Target>
 

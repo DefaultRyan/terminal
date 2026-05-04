@@ -19,6 +19,8 @@
     <XamlComponentResourceLocation>nested</XamlComponentResourceLocation>
     <VersionInfoFileDescription>Windows Terminal Markdown Control Library</VersionInfoFileDescription>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <CppWinRTModuleInclude>Microsoft.Terminal</CppWinRTModuleInclude>
+    <CppWinRTModuleExclude>Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>
@@ -87,25 +89,29 @@
   </ItemGroup>
   <Import Project="$(OpenConsoleDir)src\cppwinrt.build.post.props" />
 
-  <!-- Workaround: XAML compiler generated .cpp files (XamlTypeInfo.g.cpp, etc.)
-       use winrt projected types but don't know about C++20 modules. We can't
-       use /FI (PCH discards it) or edit the generated files. Instead, we
-       author wrapper .cpp files that set up WINRT_IMPORT_MODULE and import
-       the needed modules before #including the generated file. A target
-       swaps out the generated items for our wrappers in ClCompile. -->
-  <ItemGroup>
-    <ClCompile Include="XamlTypeInfo.module.cpp" />
-    <ClCompile Include="XamlTypeInfo.Impl.module.cpp" />
-    <ClCompile Include="CodeBlock.module.cpp" />
-  </ItemGroup>
-  <!-- Remove XAML-generated .cpp from compilation after they're generated,
-       replacing them with our module-aware wrappers. Using Remove at target
-       level because the items are added dynamically by MarkupCompilePass2. -->
-  <Target Name="ReplaceXamlGeneratedWithWrappers"
-          AfterTargets="MarkupCompilePass2"
+  <!-- XAML-generated files need module imports. Inject ModulePreamble.h via /FI
+       and disable PCH so the imports are processed before the generated code.
+       Two targets needed: one for the first ClCompile pass (XamlTypeInfo items
+       added by ComputeXamlGeneratedCompileInputs), and one for the second
+       CompileXamlGeneratedFiles pass (items re-added after MarkupCompilePass2). -->
+  <Target Name="InjectModuleImportsIntoXamlGenerated"
+          AfterTargets="ComputeXamlGeneratedCompileInputs"
           BeforeTargets="ClCompile">
     <ItemGroup>
-      <ClCompile Remove="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g' or '%(Filename)' == 'CodeBlock.xaml.g'" />
+      <ClCompile Update="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g' or '%(Filename)' == 'XamlMetaDataProvider' or '%(Filename)' == 'XamlLibMetadataProvider.g'">
+        <PrecompiledHeader>NotUsing</PrecompiledHeader>
+        <ForcedIncludeFiles>$(MSBuildProjectDirectory)\ModulePreamble.h</ForcedIncludeFiles>
+      </ClCompile>
+    </ItemGroup>
+  </Target>
+  <Target Name="InjectModuleImportsIntoXamlGeneratedPass2"
+          AfterTargets="ComputeXamlGeneratedCompileInputs"
+          BeforeTargets="CompileXamlGeneratedFiles">
+    <ItemGroup>
+      <ClCompile Update="@(ClCompile)" Condition="'%(Filename)' == 'XamlTypeInfo.g' or '%(Filename)' == 'XamlTypeInfo.Impl.g' or '%(Filename)' == 'XamlMetaDataProvider' or '%(Filename)' == 'XamlLibMetadataProvider.g'">
+        <PrecompiledHeader>NotUsing</PrecompiledHeader>
+        <ForcedIncludeFiles>$(MSBuildProjectDirectory)\ModulePreamble.h</ForcedIncludeFiles>
+      </ClCompile>
     </ItemGroup>
   </Target>
 
