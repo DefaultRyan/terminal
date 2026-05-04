@@ -12,6 +12,8 @@
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <CppWinRTModuleInclude>Microsoft.Terminal</CppWinRTModuleInclude>
+    <CppWinRTModuleExclude>Microsoft.Terminal.Core</CppWinRTModuleExclude>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\common.openconsole.props" Condition="'$(OpenConsoleDir)'==''" />
   <Import Project="$(OpenConsoleDir)src\common.nugetversions.props" />

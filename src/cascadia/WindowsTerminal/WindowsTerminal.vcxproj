@@ -16,6 +16,7 @@
     <VersionInfoFileDescription>Windows Terminal Host</VersionInfoFileDescription>
     <PgoTarget>true</PgoTarget>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <CppWinRTModuleInclude>Microsoft.Terminal;TerminalApp</CppWinRTModuleInclude>
     <CppWinRTModuleExclude>Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
   </PropertyGroup>
 

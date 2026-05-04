@@ -10,6 +10,7 @@
     <PgoTarget>true</PgoTarget>
     <VersionInfoFileDescription>Windows Terminal Connection Library</VersionInfoFileDescription>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <CppWinRTModuleInclude>Microsoft.Terminal</CppWinRTModuleInclude>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>

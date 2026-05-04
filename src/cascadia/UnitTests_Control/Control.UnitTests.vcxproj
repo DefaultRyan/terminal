@@ -14,7 +14,8 @@
     <TerminalCppWinrt>true</TerminalCppWinrt>
     <TerminalMUX>true</TerminalMUX>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
-    <CppWinRTModuleExclude>Microsoft.Terminal.Core;Microsoft.Terminal.Control;Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
+    <CppWinRTModuleInclude>Microsoft.Terminal</CppWinRTModuleInclude>
+    <CppWinRTModuleExclude>Microsoft.Terminal.Core;Microsoft.Terminal.Control;Microsoft.Terminal.TerminalConnection;Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
   </PropertyGroup>
 
   <Import Project="$(SolutionDir)\common.openconsole.props" Condition="'$(OpenConsoleDir)'==''" />

@@ -33,7 +33,8 @@
     <XamlComponentResourceLocation>nested</XamlComponentResourceLocation>
     <VersionInfoFileDescription>Windows Terminal Settings UI Library</VersionInfoFileDescription>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
-    <CppWinRTModuleExclude>Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
+    <CppWinRTModuleInclude>Microsoft.Terminal</CppWinRTModuleInclude>
+    <CppWinRTModuleExclude>Microsoft.Terminal.Core;Microsoft.Terminal.TerminalConnection;Microsoft.Terminal.Control;Microsoft.Terminal.Settings.Model;Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>
