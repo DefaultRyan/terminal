@@ -17,7 +17,7 @@
     <CppWinRTGenerateWindowsMetadata>false</CppWinRTGenerateWindowsMetadata>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
     <CppWinRTModuleInclude>Microsoft.Terminal</CppWinRTModuleInclude>
-    <CppWinRTModuleExclude>Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
+    <CppWinRTModuleExclude>Microsoft.Terminal.Core;Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>
