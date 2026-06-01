@@ -157,7 +157,6 @@ PublishScripts/
 
 # NuGet Packages
 *.nupkg
-!Microsoft.Windows.CppWinRT.999.999.999.999.nupkg
 # The packages folder can be ignored because of Package Restore
 **/packages/*
 # except build/, which is used as an MSBuild target.
