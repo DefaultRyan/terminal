@@ -17,7 +17,7 @@
     <PgoTarget>true</PgoTarget>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
     <CppWinRTModuleInclude>Microsoft.Terminal;TerminalApp</CppWinRTModuleInclude>
-    <CppWinRTModuleExclude>Microsoft.Terminal.Core;Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
+    <CppWinRTModuleExclude>Microsoft.UI;Microsoft.Web</CppWinRTModuleExclude>
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet Dependencies">
